@@ -1,26 +1,26 @@
 export class Word {
-  private _status: number;
-  private _word: string;
+  private status: number;
+  private word: string;
 
   constructor(word : string) {
-    this._word = word;
-    this._status = 0;
+    this.word = word;
+    this.status = 0;
   }
 
 
-  get status(): number {
-    return this._status;
+  getStatus(): number {
+    return this.status;
   }
 
-  set status(value: number) {
-    this._status = value;
+  setStatus(value: number) {
+    this.status = value;
   }
 
-  get word(): string {
-    return this._word;
+  getWord(): string {
+    return this.word;
   }
 
-  set word(value: string) {
-    this._word = value;
+  setWord(value: string) {
+    this.word = value;
   }
 }

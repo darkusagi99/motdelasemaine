@@ -1,28 +1,47 @@
 import {Word} from "./word";
 
 export class Wordlist {
-  private _status = 0;
-  private _wordlist : Word[] = [];
+  private status = 0;
+  private name : string = "";
+  private wordlist : Word[] = [];
 
-  constructor() {
-    this._status = 0;
-    this._wordlist = [];
+  constructor(name : string) {
+    this.status = 0;
+    this.name = name;
+    this.wordlist = [];
   }
 
 
-  get status(): number {
-    return this._status;
+  getStatus(): number {
+    return this.status;
   }
 
-  set status(value: number) {
-    this._status = value;
+  setStatus(value: number) {
+    this.status = value;
   }
 
-  get wordlist(): Word[] {
-    return this._wordlist;
+  getWordListDisplay() : string {
+    let displayList = "";
+    this.wordlist.forEach(
+      w => displayList ? displayList += ", " + w.getWord() : displayList = w.getWord()
+    )
+    return displayList;
   }
 
-  set wordlist(value: Word[]) {
-    this._wordlist = value;
+  getWordlist(): Word[] {
+    return this.wordlist;
   }
+
+  setWordlist(value: Word[]) {
+    this.wordlist = value;
+  }
+
+  getName() : string {
+    return this.name;
+  }
+
+  setName(name : string) : void {
+    this.name = name;
+  }
+
 }

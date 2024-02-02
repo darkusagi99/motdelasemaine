@@ -1,1 +1,15 @@
-<p>wordlist works!</p>
+<div class="list-card">
+
+  <mat-card *ngFor="let currentList of wordlists" class="main-card">
+    <mat-card-header>
+      <mat-card-title>{{currentList.getName()}}</mat-card-title>
+      <mat-card-subtitle>{{ currentList.getWordListDisplay() }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-button><mat-icon aria-label="Consulter les mots">visibility</mat-icon></button>
+      <button mat-button><mat-icon aria-label="Construire les mots">plumbing</mat-icon></button>
+      <button mat-button><mat-icon aria-label="Ecrire les mots">edit_note</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
