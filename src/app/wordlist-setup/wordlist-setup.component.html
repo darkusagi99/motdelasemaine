@@ -3,7 +3,7 @@
   <mat-card *ngFor="let currentList of wordlists" class="main-card">
     <mat-card-header>
       <mat-card-title>{{currentList.getName()}}</mat-card-title>
-      <mat-card-subtitle>Mot1, mot2, mot3, mot4, ....</mat-card-subtitle>
+      <mat-card-subtitle>{{ currentList.getWordListDisplay() }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions align="end">
       <button mat-button><mat-icon aria-label="Modifier">edit</mat-icon></button>

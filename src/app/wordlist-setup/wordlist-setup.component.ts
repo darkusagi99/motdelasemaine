@@ -6,6 +6,7 @@ import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} f
 //import {WORDLISTS} from "../mock-wordlist";
 import {NgForOf} from "@angular/common";
 import {Wordlist} from "../wordlist";
+import {WordlistService} from "../common/wordlist.service";
 
 @Component({
   selector: 'app-wordlist-setup',
@@ -27,12 +28,12 @@ import {Wordlist} from "../wordlist";
 export class WordlistSetupComponent {
   wordlists : Wordlist[] = [];
 
+  constructor(private wordListService : WordlistService) {
+  }
+
+
   ngOnInit() : void {
-    const wordlist1 = new Wordlist("Liste 1");
-    const wordlist2 = new Wordlist("Liste 2");
-    const wordlist3 = new Wordlist("Liste 3");
-    const wordlist4 = new Wordlist("Liste 4");
-    this.wordlists.push(wordlist1, wordlist2, wordlist3, wordlist4);
+    this.wordlists = this.wordListService.getWordList();
   }
 
 }
