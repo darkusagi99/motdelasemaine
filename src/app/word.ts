@@ -16,6 +16,14 @@ export class Word {
     this.status = value;
   }
 
+  addStatusFlag(statusFlag : number) {
+    this.status = this.status | statusFlag;
+  }
+
+  hasStatusFlag(statusFlag : number) {
+    return (this.status & statusFlag) > 0;
+  }
+
   getWord(): string {
     return this.word;
   }

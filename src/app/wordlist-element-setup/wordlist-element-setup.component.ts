@@ -39,9 +39,6 @@ export class WordlistElementSetupComponent {
     route.paramMap.subscribe( paramMap => {
       this.wordlistId = paramMap.get('id') ?? ""
     })
-
-    console.log(this.wordlistId);
-
     this.wordlist = wordListService.getWordListById(this.wordlistId);
   }
 

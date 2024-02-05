@@ -5,6 +5,7 @@ import {MatIcon} from "@angular/material/icon";
 import {Wordlist} from "../wordlist";
 import {NgForOf} from "@angular/common";
 import {WordlistService} from "../common/wordlist.service";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-wordlist',
@@ -17,7 +18,9 @@ import {WordlistService} from "../common/wordlist.service";
     MatCardSubtitle,
     MatCardTitle,
     MatIcon,
-    NgForOf
+    NgForOf,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './wordlist.component.html',
   styleUrl: './wordlist.component.css'
@@ -27,10 +30,8 @@ export class WordlistComponent {
 
   constructor(private wordListService : WordlistService) {
 
-  }
-
-  ngOnInit() : void {
-
     this.wordlists = this.wordListService.getWordList();
+    console.log(this.wordlists);
   }
+
 }

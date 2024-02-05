@@ -127,9 +127,44 @@ export class WordlistService {
   }
 
   // Update the status of the list
-  public updateStatus() {}
+  public updateListStatus(wordlist : Wordlist, activityList : Word[], statusFlag : number) {
 
-  // Create new Wrodlist entry
+    let allWordWithStatus = true;
+
+    // Loadlist
+    const listeIdx: number = this.findIndexById(wordlist.getId());
+    if (listeIdx >= 0) {
+      // Loop on activity words
+      for(let currentActivity of activityList) {
+        // Update status for activity
+        let wordIdx = this.findWordById(wordlist.getId(), currentActivity.getWord());
+        if (wordIdx >= 0) {
+          if (this.wordlists[listeIdx].getWordlist()[wordIdx].getStatus() !== currentActivity.getStatus()) {
+            this.wordlists[listeIdx].getWordlist()[wordIdx].setStatus(currentActivity.getStatus());
+          }
+        }
+
+        // If all word are validated, update status for list
+        if (! this.wordlists[listeIdx].getWordlist()[wordIdx].hasStatusFlag(statusFlag)) {
+          allWordWithStatus = false;
+        }
+
+      }
+
+      // If all word are validated, update status for list
+      if (allWordWithStatus) {
+        this.wordlists[listeIdx].addStatusFlag(statusFlag);
+      }
+
+      // Save data
+      this.saveData();
+    }
+
+
+
+  }
+
+  // Create new Wordlist entry
   public addWordlist(name : string) {
     let newList = new Wordlist(name);
      this.wordlists.push(newList);

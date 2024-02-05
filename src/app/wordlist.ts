@@ -34,6 +34,21 @@ export class Wordlist {
     return this.wordlist ?? [];
   }
 
+  getShuffledlist() : Word[] {
+
+    // Clone the list of words
+    let tempWordList  = [...this.wordlist];
+
+    // Loop on elements and randomly switch elements
+    let m = tempWordList.length;
+    while (m) {
+      const i = Math.floor(Math.random() * m--);
+      [tempWordList[m], tempWordList[i]] = [tempWordList[i], tempWordList[m]];
+    }
+    return tempWordList;
+
+  }
+
   setWordlist(value: Word[]) {
     this.wordlist = value;
   }
@@ -48,6 +63,14 @@ export class Wordlist {
 
   getId() : string {
     return this.id
+  }
+
+  addStatusFlag(statusFlag : number) {
+    this.status = this.status | statusFlag;
+  }
+
+  hasStatusFlag(statusFlag : number) {
+    return (this.status & statusFlag) > 0;
   }
 
 }

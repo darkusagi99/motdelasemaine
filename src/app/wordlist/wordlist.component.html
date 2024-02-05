@@ -6,9 +6,15 @@
       <mat-card-subtitle>{{ currentList.getWordListDisplay() }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions align="end">
-      <button mat-button><mat-icon aria-label="Consulter les mots">visibility</mat-icon></button>
-      <button mat-button><mat-icon aria-label="Construire les mots">plumbing</mat-icon></button>
-      <button mat-button><mat-icon aria-label="Ecrire les mots">edit_note</mat-icon></button>
+      <a routerLink="/wordlist/see/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <button mat-button><mat-icon aria-label="Consulter les mots">visibility</mat-icon></button>
+      </a>
+      <a routerLink="/wordlist/build/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <button mat-button><mat-icon aria-label="Construire les mots">plumbing</mat-icon></button>
+      </a>
+      <a routerLink="/wordlist/write/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <button mat-button><mat-icon aria-label="Ecrire les mots">edit_note</mat-icon></button>
+      </a>
     </mat-card-actions>
   </mat-card>
 

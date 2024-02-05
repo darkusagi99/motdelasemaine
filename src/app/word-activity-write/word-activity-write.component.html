@@ -1,1 +1,13 @@
-<p>word-activity-write works!</p>
+<!-- Button bar at the top -->
+<div fxLayout="row" fxLayoutAlign="space-around center">
+
+  <button mat-fab color="accent"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
+  <span class="toolbar-spacer"></span>
+  <button mat-fab color="accent" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
+
+</div>
+
+<!-- Activity contents and actions -->
+<div>
+  <h1>{{activityList[currentIdx].getWord()}}</h1>
+</div>

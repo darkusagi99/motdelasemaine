@@ -1,0 +1,14 @@
+.mat-icon{
+  height:48px !important;
+  width:48px !important;
+  font-size:48px !important;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.h1{
+  text-align: center;
+  font-size: 25.5vw;
+}
