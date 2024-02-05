@@ -1,0 +1,17 @@
+
+
+.activity-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-button {
+  margin: 16px !important;
+}
+
+.activity-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

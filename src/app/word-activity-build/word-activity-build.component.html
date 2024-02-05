@@ -1,10 +1,7 @@
 <!-- Button bar at the top -->
 <div class="activity-toolbar">
-
-  <button mat-fab color="accent"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
-  <span class="toolbar-spacer"></span>
-  <button mat-fab color="accent" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
-
+  <button mat-fab color="accent" class="activity-button" (click)="hearWord()"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
+  <button mat-fab color="accent" class="activity-button" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
 </div>
 
 <!-- Activity contents and actions -->

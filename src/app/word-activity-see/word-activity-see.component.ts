@@ -63,6 +63,26 @@ export class WordActivitySeeComponent {
 
   hearWord() {
 
+    // Extract word to say
+    let wordToSay = this.activityList[this.currentIdx].getWord();
+    let tmpSelectedVoice = "Flo"
+    let tmpLang = "fr-FR"
+    let startPhrase = "Le mot est : "
+
+    // Say word
+    let synth = speechSynthesis;
+    let utterance = new SpeechSynthesisUtterance(startPhrase + wordToSay);
+
+    console.log(synth.getVoices());
+
+    for(let voice of synth.getVoices()){
+      if(voice.name === tmpSelectedVoice && voice.lang === tmpLang){
+        console.log("Found");
+        utterance.voice = voice;
+      }
+    }
+    synth.speak(utterance);
+
   }
 
 
