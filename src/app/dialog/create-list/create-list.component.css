@@ -1,0 +1,11 @@
+.list-dialog {
+  width: 100%;
+  align-items: center;
+}
+
+.list-dialog-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

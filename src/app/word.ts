@@ -2,9 +2,9 @@ export class Word {
   private status: number;
   private word: string;
 
-  constructor(word : string) {
+  constructor(word : string, status : number = 0) {
     this.word = word;
-    this.status = 0;
+    this.status = status;
   }
 
 

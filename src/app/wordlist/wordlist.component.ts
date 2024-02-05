@@ -4,7 +4,6 @@ import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} f
 import {MatIcon} from "@angular/material/icon";
 import {Wordlist} from "../wordlist";
 import {NgForOf} from "@angular/common";
-import {Word} from "../word";
 import {WordlistService} from "../common/wordlist.service";
 
 @Component({

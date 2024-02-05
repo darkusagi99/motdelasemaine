@@ -1,0 +1,13 @@
+<div class="list-dialog">
+  <h1 mat-dialog-title class="list-dialog-content">Nouveau mot</h1>
+  <div mat-dialog-content class="list-dialog-content">
+    <mat-form-field  class="list-dialog-content">
+      <mat-label>Mot</mat-label>
+      <input matInput [(ngModel)]="data">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="list-dialog-content">
+    <button mat-button [mat-dialog-close]="">Annuler</button>
+    <button mat-button  color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>
+</div>

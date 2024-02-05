@@ -6,16 +6,20 @@
       <mat-card-subtitle>{{ currentList.getWordListDisplay() }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions align="end">
-      <button mat-button><mat-icon aria-label="Modifier">edit</mat-icon></button>
-      <button mat-button color="accent"><mat-icon aria-label="Raz des statuts">unpublished</mat-icon></button>
-      <button mat-button color="warn"><mat-icon aria-label="Ajouter liste">delete</mat-icon></button>
+      <a routerLink="/wordlist-setup/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <button mat-button>
+          <mat-icon aria-label="Modifier">edit</mat-icon>
+        </button>
+      </a>
+      <button mat-button color="accent"  (click)="resetListStatus(currentList)"><mat-icon aria-label="Raz des statuts">unpublished</mat-icon></button>
+      <button mat-button color="warn" (click)="deleteList(currentList)"><mat-icon aria-label="Ajouter liste">delete</mat-icon></button>
     </mat-card-actions>
   </mat-card>
 
 </div>
 <!-- Bottom button - Add new list -->
 <div class="add-button">
-    <button mat-fab color="accent">
+    <button mat-fab color="accent" (click)="createWordlist()">
       <mat-icon aria-label="Ajouter liste">add</mat-icon>
     </button>
 </div>

@@ -1,16 +1,18 @@
 import {Word} from "./word";
+import {v4 as uuid} from "uuid";
 
 export class Wordlist {
+  private id : string
   private status = 0;
   private name : string = "";
   private wordlist : Word[] = [];
 
-  constructor(name : string) {
-    this.status = 0;
+  constructor(name : string, status = 0, wordlist : Word[] = [], id = uuid() ) {
+    this.id = uuid();
+    this.status = status;
     this.name = name;
-    this.wordlist = [];
+    this.wordlist = wordlist;
   }
-
 
   getStatus(): number {
     return this.status;
@@ -29,7 +31,7 @@ export class Wordlist {
   }
 
   getWordlist(): Word[] {
-    return this.wordlist;
+    return this.wordlist ?? [];
   }
 
   setWordlist(value: Word[]) {
@@ -37,11 +39,15 @@ export class Wordlist {
   }
 
   getName() : string {
-    return this.name;
+    return this.name ?? "";
   }
 
   setName(name : string) : void {
     this.name = name;
+  }
+
+  getId() : string {
+    return this.id
   }
 
 }
