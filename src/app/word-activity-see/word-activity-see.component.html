@@ -1,14 +1,11 @@
 <!-- Button bar at the top -->
-<div fxLayout="row" fxLayoutAlign="space-around center">
-
-  <button mat-fab color="accent"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
-  <span class="toolbar-spacer"></span>
-  <button mat-fab color="accent" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
-
+<div class="activity-toolbar">
+  <button mat-fab color="accent" class="activity-button"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
+  <button mat-fab color="accent" class="activity-button" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
 </div>
 
 <!-- Activity contents and actions -->
-<div>
+<div class="activity-body">
   <h1>{{activityList[currentIdx].getWord()}}</h1>
 </div>
 

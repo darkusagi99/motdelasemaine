@@ -17,3 +17,7 @@
 .main-card {
   margin-bottom: 16px !important;
 }
+
+.validated-list {
+  color : greenyellow;
+}

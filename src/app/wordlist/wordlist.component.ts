@@ -6,6 +6,7 @@ import {Wordlist} from "../wordlist";
 import {NgForOf} from "@angular/common";
 import {WordlistService} from "../common/wordlist.service";
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {WordStatus} from "../word-status";
 
 @Component({
   selector: 'app-wordlist',
@@ -34,4 +35,5 @@ export class WordlistComponent {
     console.log(this.wordlists);
   }
 
+  protected readonly WordStatus = WordStatus;
 }
