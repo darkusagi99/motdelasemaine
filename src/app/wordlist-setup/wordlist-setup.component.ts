@@ -32,10 +32,6 @@ export class WordlistSetupComponent {
   wordlists : Wordlist[] = [];
 
   constructor(public dialog: MatDialog, private wordListService : WordlistService) {
-  }
-
-
-  ngOnInit() : void {
     this.wordlists = this.wordListService.getWordList();
   }
 

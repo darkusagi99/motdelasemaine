@@ -5,10 +5,7 @@ import {WordlistElementSetupComponent} from "./wordlist-element-setup/wordlist-e
 
 export const routes: Routes = [
   { path: 'wordlist', component: WordlistComponent },
-  { path: 'wordlist-setup', component: WordlistSetupComponent,
-      children : [
-        { path : ':id', component : WordlistElementSetupComponent}
-      ]
-  },
+  { path: 'wordlist-setup', component: WordlistSetupComponent },
+  { path: 'wordlist-setup/:id', component: WordlistElementSetupComponent },
   { path: '',   redirectTo: '/wordlist', pathMatch: 'full' },
 ];

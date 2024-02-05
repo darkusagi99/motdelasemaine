@@ -1,1 +1,26 @@
-<p>wordlist-element-setup works!</p>
+<!-- List header -->
+<div class="wordlist-title">
+  <h1>{{wordlist.getName()}}</h1>
+  <button mat-button (click)="editListName()"><mat-icon aria-label="Editer liste">edit</mat-icon></button>
+</div>
+
+<!-- List of words -->
+<div class="list-card">
+
+  <mat-card *ngFor="let currentWord of wordlist.getWordlist()" class="main-card">
+    <mat-card-header>
+      <mat-card-title>{{currentWord.getWord()}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-button (click)="editWord(currentWord.getWord())"><mat-icon aria-label="Modifier">edit</mat-icon></button>
+      <button mat-button color="warn" (click)="deleteWord(currentWord.getWord())"><mat-icon aria-label="Supprimer mot">delete</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+<!-- Bottom button - Add new list -->
+<div class="add-button">
+  <button mat-fab color="accent" (click)="createWord()">
+    <mat-icon aria-label="Ajouter mot">add</mat-icon>
+  </button>
+</div>

@@ -8,7 +8,7 @@ export class Wordlist {
   private wordlist : Word[] = [];
 
   constructor(name : string, status = 0, wordlist : Word[] = [], id = uuid() ) {
-    this.id = uuid();
+    this.id = id;
     this.status = status;
     this.name = name;
     this.wordlist = wordlist;
