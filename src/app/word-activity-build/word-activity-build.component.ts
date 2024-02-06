@@ -106,7 +106,7 @@ export class WordActivityBuildComponent {
       let tmpLetter = tmpWord.at(idx);
       if (tmpLetter) {
         this.currentWordLetters.push(tmpLetter.toLowerCase());
-        this.builtWordLetters.push("");
+        //this.builtWordLetters.push("");
       }
     }
 
@@ -125,26 +125,19 @@ export class WordActivityBuildComponent {
     console.log("Drop event")
     console.log("Drop event : previousIndex " + event.previousIndex);
     console.log("Drop event : currentIndex " + event.currentIndex);
+    console.log(event.container.data);
     if (event.previousContainer === event.container) {
       // Move inside the container - Just change order
-
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
       // Move to the other container - Swap entries
-
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex,
       );
-
-      /*transferArrayItem(
-        event.container.data,
-        event.previousContainer.data,
-        event.currentIndex + 1,
-        event.previousIndex
-      );*/
     }
   }
 

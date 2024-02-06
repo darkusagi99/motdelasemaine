@@ -26,8 +26,17 @@
 .activity-build {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex: 1;
+}
+
+.activity-build-target-zone {
+  border-style: dotted;
+  border-color: darkgray;
+}
+
+.activity-build-source-zone {
+  border-style: dotted;
+  border-color: darkgray;
 }
 
 .activity-build-cell {

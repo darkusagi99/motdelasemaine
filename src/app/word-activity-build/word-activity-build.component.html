@@ -7,27 +7,13 @@
 <!-- Activity contents and actions -->
 <div class="activity-build-zone">
 
-  <!-- Upper zone - Word to build -->
-  <div class="activity-build"
-       cdkDropList
-       #testList="cdkDropList"
-       [cdkDropListData]="builtWordLetters"
-       (cdkDropListDropped)="drop($event)">
-    <div *ngFor="let currentLetter of this.testWordLetters"
-         cdkDrag
-         [cdkDragDisabled]="currentLetter.length==0"
-         class="activity-build-cell activity-build-target">
-      {{currentLetter}}
-    </div>
-  </div>
-
-
-  <div class="activity-build"
+  <div class="activity-build activity-build-target-zone"
        cdkDropList
        #builtList="cdkDropList"
        [cdkDropListData]="builtWordLetters"
        [cdkDropListConnectedTo]="[letterList]"
-       (cdkDropListDropped)="drop($event)">
+       (cdkDropListDropped)="drop($event)"
+       cdkDropListOrientation="horizontal">
     <div *ngFor="let currentLetter of this.builtWordLetters"
          cdkDrag
          [cdkDragDisabled]="currentLetter.length==0"
@@ -39,12 +25,13 @@
   <div class="activity-build-filler"></div>
 
   <!-- Bottom zone - Letters of word -->
-  <div class="activity-build"
+  <div class="activity-build activity-build-source-zone"
        cdkDropList
        #letterList="cdkDropList"
        [cdkDropListData]="currentWordLetters"
        [cdkDropListConnectedTo]="[builtList]"
-       (cdkDropListDropped)="drop($event)">
+       (cdkDropListDropped)="drop($event)"
+       cdkDropListOrientation="horizontal">
 
     <div *ngFor="let currentLetter of this.currentWordLetters"
          cdkDrag
