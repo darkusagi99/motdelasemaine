@@ -7,6 +7,7 @@ import {WordlistService} from "../common/wordlist.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {WordStatus} from "../word-status";
 import {NgForOf} from "@angular/common";
+import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-word-activity-build',
@@ -14,7 +15,9 @@ import {NgForOf} from "@angular/common";
   imports: [
     MatFabButton,
     MatIcon,
-    NgForOf
+    NgForOf,
+    CdkDrag,
+    CdkDropList
   ],
   templateUrl: './word-activity-build.component.html',
   styleUrl: './word-activity-build.component.css'
@@ -29,6 +32,8 @@ export class WordActivityBuildComponent {
 
   currentWordLetters : string[] = [];
   builtWordLetters : string[] = [];
+
+  testWordLetters : string[] = ["T", "E", "S", "T"];
 
   constructor(private wordListService : WordlistService, route : ActivatedRoute, private router: Router) {
     //let listId = route.snapshot.params['id'];
@@ -114,6 +119,37 @@ export class WordActivityBuildComponent {
       const i = Math.floor(Math.random() * m--);
       [this.currentWordLetters[m], this.currentWordLetters[i]] = [this.currentWordLetters[i], this.currentWordLetters[m]];
     }
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    console.log("Drop event")
+    console.log("Drop event : previousIndex " + event.previousIndex);
+    console.log("Drop event : currentIndex " + event.currentIndex);
+    if (event.previousContainer === event.container) {
+      // Move inside the container - Just change order
+
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      // Move to the other container - Swap entries
+
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+
+      /*transferArrayItem(
+        event.container.data,
+        event.previousContainer.data,
+        event.currentIndex + 1,
+        event.previousIndex
+      );*/
+    }
+  }
+
+  resetCurrent() {
+    this.extractWordToBuild();
   }
 
 }
