@@ -7,6 +7,7 @@ import {WordStatus} from "../word-status";
 import {NgForOf} from "@angular/common";
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {WordActivityCommon} from "../word-activity-common";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-word-activity-build',
@@ -26,9 +27,9 @@ export class WordActivityBuildComponent extends WordActivityCommon {
   currentWordLetters : string[] = [];
   builtWordLetters : string[] = [];
 
-  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router) {
+  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog) {
 
-    super(wordListService, route, router);
+    super(wordListService, route, router, dialog);
     this.activityFlag = WordStatus.BUILD;
 
     // Additionnal process for build activity
@@ -37,8 +38,7 @@ export class WordActivityBuildComponent extends WordActivityCommon {
   }
 
   override getCurrentWord() {
-    console.log("Check currentWord : " + this.builtWordLetters.join())
-    return this.builtWordLetters.join();
+    return this.builtWordLetters.join("");
   }
 
   override resetInput() {

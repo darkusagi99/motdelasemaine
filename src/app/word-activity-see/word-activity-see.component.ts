@@ -6,6 +6,7 @@ import {MatCardActions} from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
 import {WordStatus} from "../word-status";
 import {WordActivityCommon} from "../word-activity-common";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-word-activity-see',
@@ -21,10 +22,17 @@ import {WordActivityCommon} from "../word-activity-common";
 })
 export class WordActivitySeeComponent extends WordActivityCommon{
 
-  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router) {
-    super(wordListService, route, router);
+  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog) {
+    super(wordListService, route, router, dialog);
     this.activityFlag = WordStatus.SEE;
+  }
 
+  override showValidationDialog() {
+    // See activity - do nothing
+  }
+
+  override showErrorDialog() {
+    // See activity - do nothing
   }
 
 }

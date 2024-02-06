@@ -1,0 +1,25 @@
+.list-dialog {
+  width: 100%;
+  align-items: center;
+}
+
+.list-dialog-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.list-dialog-text {
+  font-size: 6vw;
+}
+
+.okText {
+  color: green;
+  font-weight: bold;
+}
+
+.errText {
+  color: darkred;
+  font-weight: bold;
+}

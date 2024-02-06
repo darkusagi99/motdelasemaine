@@ -8,6 +8,7 @@ import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {WordActivityCommon} from "../word-activity-common";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-word-activity-write',
@@ -27,8 +28,8 @@ import {WordActivityCommon} from "../word-activity-common";
 export class WordActivityWriteComponent extends WordActivityCommon{
   currentWord : string = "";
 
-  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router) {
-    super(wordListService, route, router);
+  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog) {
+    super(wordListService, route, router, dialog);
     this.activityFlag = WordStatus.WRITE;
   }
 

@@ -3,6 +3,8 @@ import {WordStatus} from "./word-status";
 import {Word} from "./word";
 import {WordlistService} from "./common/wordlist.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {WordCheckComponent} from "./dialog/word-check/word-check.component";
 
 export class WordActivityCommon {
   wordlist : Wordlist;
@@ -12,7 +14,7 @@ export class WordActivityCommon {
   activityList : Word[];
   currentIdx = 0;
 
-  constructor(protected wordListService : WordlistService, route : ActivatedRoute, protected router: Router) {
+  constructor(protected wordListService : WordlistService, route : ActivatedRoute, protected router: Router, protected dialog: MatDialog) {
     route.paramMap.subscribe( paramMap => {
       this.wordlistId = paramMap.get('id') ?? ""
     })
@@ -26,7 +28,7 @@ export class WordActivityCommon {
 
     // Check current Word
     // Validate Word status
-    if(this.getCurrentWord() === this.activityList[this.currentIdx].getWord()) {
+    if(this.getCurrentWord().toLowerCase() === this.activityList[this.currentIdx].getWord().toLowerCase()) {
       // Mot correct
       this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
 
@@ -36,7 +38,7 @@ export class WordActivityCommon {
     } else {
       // Mot erroné
       // Affichage pop-up erreur
-      this.showErrorDialog();
+      this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
 
     }
 
@@ -64,12 +66,24 @@ export class WordActivityCommon {
   }
 
   showValidationDialog() {
-
+    console.log('Validation dialog');
+      const dialogRef = this.dialog.open(WordCheckComponent, {
+        width: '90%',
+        data: "Bravo !"
+      });
 
   }
 
-  showErrorDialog() {
+  showErrorDialog(writtenWord: string, correctWord : string) {
+    console.log('ERROR dialog');
+    let htmlData = "Dommage, le mot était : <b><span class='okText'>"
+      + correctWord + "</span></b> - Tu as écrit : <b><span class='errText'>"
+      + writtenWord + "</span></b>";
 
+    const dialogRef = this.dialog.open(WordCheckComponent, {
+      width: '90%',
+      data: htmlData
+    });
 
   }
 
