@@ -9,6 +9,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NgForOf} from "@angular/common";
 import {CreateWordComponent} from "../dialog/create-word/create-word.component";
 import {CreateListComponent} from "../dialog/create-list/create-list.component";
+import {ToolbarComponent} from "../toolbar/toolbar.component";
 
 @Component({
   selector: 'app-wordlist-element-setup',
@@ -24,7 +25,8 @@ import {CreateListComponent} from "../dialog/create-list/create-list.component";
     MatIcon,
     NgForOf,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    ToolbarComponent
   ],
   templateUrl: './wordlist-element-setup.component.html',
   styleUrl: './wordlist-element-setup.component.css'

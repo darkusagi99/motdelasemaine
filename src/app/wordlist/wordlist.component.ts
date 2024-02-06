@@ -7,22 +7,24 @@ import {NgForOf} from "@angular/common";
 import {WordlistService} from "../common/wordlist.service";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {WordStatus} from "../word-status";
+import {ToolbarComponent} from "../toolbar/toolbar.component";
 
 @Component({
   selector: 'app-wordlist',
   standalone: true,
-  imports: [
-    MatButton,
-    MatCard,
-    MatCardActions,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatCardTitle,
-    MatIcon,
-    NgForOf,
-    RouterLink,
-    RouterLinkActive
-  ],
+    imports: [
+        MatButton,
+        MatCard,
+        MatCardActions,
+        MatCardHeader,
+        MatCardSubtitle,
+        MatCardTitle,
+        MatIcon,
+        NgForOf,
+        RouterLink,
+        RouterLinkActive,
+        ToolbarComponent
+    ],
   templateUrl: './wordlist.component.html',
   styleUrl: './wordlist.component.css'
 })

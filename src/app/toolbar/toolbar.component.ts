@@ -16,11 +16,4 @@ import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
   styleUrl: './toolbar.component.css'
 })
 export class ToolbarComponent {
-
-  private showButton = true;
-
-  constructor(route : ActivatedRoute) {
-    //route.routeConfig?.pathMatch("")
-  }
-
 }
