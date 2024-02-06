@@ -1,6 +1,6 @@
 <!-- Button bar at the top -->
 <div class="activity-toolbar">
-  <button mat-fab color="accent" class="activity-button" (click)="hearWord()"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
+  <button mat-fab color="accent" class="activity-button" (click)="hearWord(this.activityList[this.currentIdx].getWord())"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
   <button mat-fab color="accent" class="activity-button" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
 </div>
 
@@ -43,7 +43,7 @@
 
   <!-- Last zone - reset button -->
   <div class="activity-bottom-toolbar">
-    <button mat-fab color="accent" class="activity-button" (click)="resetCurrent()"><mat-icon aria-label="Reset">restore</mat-icon></button>
+    <button mat-fab color="accent" class="activity-button" (click)="resetInput()"><mat-icon aria-label="Reset">restore</mat-icon></button>
   </div>
 
 </div>
