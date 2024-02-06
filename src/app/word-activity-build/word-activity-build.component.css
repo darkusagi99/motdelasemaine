@@ -6,6 +6,60 @@
   justify-content: space-between;
 }
 
+.activity-bottom-toolbar {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
+
+.activity-build-zone {
+  display: flex;
+  flex-direction: column;
+  min-height: 80%;
+}
+
+.activity-build-filler {
+   flex: 1;
+ }
+
+.activity-build {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-build-cell {
+  display: flex;
+  border-style: solid;
+  border-radius: 15px;
+  font-size: 12vw;
+  width : 12vw;
+  height : 12vw;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.activity-build-draggable {
+  background-color: cornflowerblue;
+}
+
+
+.activity-build-target {
+  background-color: lightgreen;
+}
+
+
+.activity-build-target-hovered {
+  background-color: darkorchid;
+}
+
+
+.activity-build-dropped {
+  background-color: sandybrown;
+}
+
 .activity-button {
   margin: 16px !important;
 }

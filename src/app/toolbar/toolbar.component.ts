@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-toolbar',
@@ -16,5 +16,11 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
   styleUrl: './toolbar.component.css'
 })
 export class ToolbarComponent {
+
+  private showButton = true;
+
+  constructor(route : ActivatedRoute) {
+    //route.routeConfig?.pathMatch("")
+  }
 
 }

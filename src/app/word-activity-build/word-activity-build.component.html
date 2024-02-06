@@ -5,6 +5,28 @@
 </div>
 
 <!-- Activity contents and actions -->
-<div>
-  <h1>{{activityList[currentIdx].getWord()}}</h1>
+<div class="activity-build-zone">
+
+  <!-- Upper zone - Word to build -->
+  <div class="activity-build">
+    <div *ngFor="let currentLetter of this.builtWordLetters" class="activity-build-cell activity-build-target">
+      {{currentLetter}}
+    </div>
+  </div>
+
+  <div class="activity-build-filler"></div>
+
+  <!-- Bottom zone - Letters of word -->
+  <div class="activity-build">
+
+    <div *ngFor="let currentLetter of this.currentWordLetters" draggable="true" class="activity-build-cell activity-build-draggable">
+      {{currentLetter}}
+    </div>
+  </div>
+
+  <!-- Last zone - reset button -->
+  <div class="activity-bottom-toolbar">
+    <button mat-fab color="accent" class="activity-button"><mat-icon aria-label="Reset">restore</mat-icon></button>
+  </div>
+
 </div>

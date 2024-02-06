@@ -6,13 +6,15 @@ import {Word} from "../word";
 import {WordlistService} from "../common/wordlist.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {WordStatus} from "../word-status";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-word-activity-build',
   standalone: true,
   imports: [
     MatFabButton,
-    MatIcon
+    MatIcon,
+    NgForOf
   ],
   templateUrl: './word-activity-build.component.html',
   styleUrl: './word-activity-build.component.css'
@@ -25,6 +27,9 @@ export class WordActivityBuildComponent {
   activityList : Word[];
   currentIdx = 0;
 
+  currentWordLetters : string[] = [];
+  builtWordLetters : string[] = [];
+
   constructor(private wordListService : WordlistService, route : ActivatedRoute, private router: Router) {
     //let listId = route.snapshot.params['id'];
     route.paramMap.subscribe( paramMap => {
@@ -33,6 +38,8 @@ export class WordActivityBuildComponent {
     this.wordlist = wordListService.getWordListById(this.wordlistId);
 
     this.activityList = this.wordlist.getShuffledlist();
+
+    this.extractWordToBuild();
 
   }
 
@@ -48,6 +55,7 @@ export class WordActivityBuildComponent {
     if (this.activityList.length > this.currentIdx + 1) {
       // Go to next word
       this.currentIdx++;
+      this.extractWordToBuild();
     } else {
       // Save results (status update)
       this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
@@ -80,4 +88,32 @@ export class WordActivityBuildComponent {
     synth.speak(utterance);
 
   }
+
+  extractWordToBuild() {
+    // Get current word letters
+    let tmpWord : string = this.activityList[this.currentIdx].getWord();
+
+    this.currentWordLetters = [];
+    this.builtWordLetters = [];
+
+    // Extract letters from word
+    for(let idx = 0; idx < tmpWord.length; idx++) {
+      let tmpLetter = tmpWord.at(idx);
+      if (tmpLetter) {
+        this.currentWordLetters.push(tmpLetter.toLowerCase());
+        this.builtWordLetters.push("");
+      }
+    }
+
+    // Shuffle letters
+    // Clone the list of words
+
+    // Loop on elements and randomly switch elements
+    let m = this.currentWordLetters.length;
+    while (m) {
+      const i = Math.floor(Math.random() * m--);
+      [this.currentWordLetters[m], this.currentWordLetters[i]] = [this.currentWordLetters[i], this.currentWordLetters[m]];
+    }
+  }
+
 }
