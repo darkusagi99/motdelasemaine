@@ -7,6 +7,9 @@
 <!-- Activity contents and actions -->
 <div class="activity-body">
   <mat-form-field class="activity-input">
-    <input type="text" class="activity-input" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+    <input type="password" class="activity-input-hidden" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+    <div class="activity-input-visible" >
+    <input type="text" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+    </div>
   </mat-form-field>
 </div>
