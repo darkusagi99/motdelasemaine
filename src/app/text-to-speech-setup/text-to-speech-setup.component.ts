@@ -36,21 +36,25 @@ export class TextToSpeechSetupComponent {
 
   constructor(ttsService : TextToSpeechService) {
     this.ttsService = ttsService;
+    this.selectedVoice = ttsService.getCurrentVoiceURI();
+  }
+
+  updateVoice() {
+    for(let voice of this.ttsService.getAllVoices()){
+      if(voice.voiceURI === this.selectedVoice){
+        this.ttsService.saveSelectedVoice(this.selectedVoice);
+      }
+    }
+
   }
 
   testVoice() {
-
-    console.log("Voix choisie");
-    console.log(this.selectedVoice);
-
     // Extract word to say
     let notFound = true;
 
     // Say word
     for(let voice of this.ttsService.getAllVoices()){
       if(voice.voiceURI === this.selectedVoice){
-
-        this.ttsService.saveSelectedVoice(this.selectedVoice);
         let textToTest = this.baseTestText + voice.name;
         this.ttsService.sayText(textToTest);
         notFound = false;
@@ -60,7 +64,6 @@ export class TextToSpeechSetupComponent {
     if(notFound) {
       this.ttsService.sayText("Voix non trouvée");
     }
-
   }
 
 

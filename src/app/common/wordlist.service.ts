@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {Word} from "../word";
 import {Wordlist} from "../wordlist";
 import {W} from "@angular/cdk/keycodes";
+import {Auth} from "@angular/fire/auth";
+import {doc, Firestore, getDoc, setDoc} from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +11,26 @@ import {W} from "@angular/cdk/keycodes";
 export class WordlistService {
   private wordlists : Wordlist[] = [];
   private storageKey : string = "WORDLISTS";
+  firestore: Firestore = inject(Firestore);
 
-  constructor() {
+  private getConnectedCollection() {
+    return "user/" + this.auth.currentUser?.uid + "/wordlists"
+  }
+
+  constructor(private auth: Auth) {
     this.loadData();
   }
 
   /** Manage Wordlist save */
   private saveData() {
     localStorage.setItem(this.storageKey, JSON.stringify(this.wordlists));
+
+    // Si connecté - Sauvegarde vers firestore
+    if(!!this.auth.currentUser) {
+      const itemDocument = doc(this.firestore, this.getConnectedCollection(), this.storageKey);
+      setDoc(itemDocument, {wordlists : JSON.stringify(this.wordlists)})
+    }
+
   }
 
   private loadData() {
@@ -24,6 +38,24 @@ export class WordlistService {
     if (tempStorage != null) {
       this.wordlists = this.getWordListFromJson(tempStorage);
     }
+  }
+
+  loadCloudData() {
+
+    if(!!this.auth.currentUser) {
+      const itemDocument = doc(this.firestore, this.getConnectedCollection(), this.storageKey);
+      getDoc(itemDocument).then((storage) => {
+
+        let tempStorage = storage.data()?.['wordlists'];
+
+        // Handle cloud feedback
+        if (tempStorage != null) {
+          this.wordlists = this.getWordListFromJson(tempStorage);
+          localStorage.setItem(this.storageKey, JSON.stringify(this.wordlists));
+        }
+      });
+    }
+
   }
 
   private getWordListFromJson(tempStorageJson : string) {

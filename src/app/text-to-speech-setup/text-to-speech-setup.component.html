@@ -5,7 +5,7 @@
       <mat-card-subtitle>Choix de la voix</mat-card-subtitle>
     </mat-card-header>
     <div class="voice-select-div">
-      <mat-select [(ngModel)]="selectedVoice" class="voice-select">
+      <mat-select [(ngModel)]="selectedVoice" (ngModelChange)="updateVoice()" class="voice-select">
         <mat-option *ngFor="let currVoice of ttsService.getAllVoices()" value="{{currVoice.voiceURI}}"  >{{currVoice.name}} -- {{currVoice.lang}}</mat-option>
       </mat-select>
     </div>

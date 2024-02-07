@@ -1,6 +1,5 @@
-import {Component, inject} from '@angular/core';
-import firebase from "firebase/compat";
-import Firestore = firebase.firestore.Firestore;
+import {Component} from '@angular/core';
+
 import {Auth, signInWithPopup} from "@angular/fire/auth";
 import { GoogleAuthProvider } from "firebase/auth"
 import {NgForOf, NgIf} from "@angular/common";
@@ -9,10 +8,8 @@ import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} f
 import {MatIcon} from "@angular/material/icon";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
-//import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
-//import {AngularFireAuth} from "@angular/fire/compat/auth";
-//import firebase from "firebase/compat";
-//import auth = firebase.auth;
+import {TextToSpeechService} from "../text-to-speech.service";
+import {WordlistService} from "../wordlist.service";
 
 @Component({
   selector: 'app-login',
@@ -34,10 +31,17 @@ import {MatSelect} from "@angular/material/select";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private ttsService: TextToSpeechService;
+  private wordService : WordlistService;
 
   constructor(
-    private auth: Auth
-  ) { }
+    private auth: Auth,
+    ttsService : TextToSpeechService,
+    wordService : WordlistService
+  ) {
+    this.ttsService = ttsService
+    this.wordService = wordService
+  }
 
   loginWithGoogle() {
     const googleProvider = new GoogleAuthProvider();
@@ -47,6 +51,8 @@ export class LoginComponent {
         // Successfully logged in
         console.log(googleResponse);
         // Add your logic here
+        this.ttsService.loadCloudData();
+        this.wordService.loadCloudData();
 
       }).catch(err => {
       // Login error
@@ -65,7 +71,6 @@ export class LoginComponent {
   isLogged() {
     return !!this.auth.currentUser;
 
-    //return (this.auth.currentUser !== undefined)
   }
 
 }
