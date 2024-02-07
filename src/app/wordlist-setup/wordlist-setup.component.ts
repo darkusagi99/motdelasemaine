@@ -10,6 +10,7 @@ import {CreateListComponent} from "../dialog/create-list/create-list.component";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {ToolbarComponent} from "../toolbar/toolbar.component";
 import {TextToSpeechSetupComponent} from "../text-to-speech-setup/text-to-speech-setup.component";
+import {LoginComponent} from "../common/login/login.component";
 
 @Component({
   selector: 'app-wordlist-setup',
@@ -27,7 +28,8 @@ import {TextToSpeechSetupComponent} from "../text-to-speech-setup/text-to-speech
     RouterLink,
     RouterLinkActive,
     ToolbarComponent,
-    TextToSpeechSetupComponent
+    TextToSpeechSetupComponent,
+    LoginComponent
   ],
   templateUrl: './wordlist-setup.component.html',
   styleUrl: './wordlist-setup.component.css'

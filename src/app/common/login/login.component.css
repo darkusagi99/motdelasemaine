@@ -4,22 +4,16 @@
   font-size:48px !important;
 }
 
-.add-button {
+.log-button {
   text-align: right;
   border: 0;
-  padding: 48px !important;
+  justify-content: center;
 }
 
 .list-card {
-  padding: 48px !important;
+  padding: 16px 48px !important;
 }
 
 .main-card {
   margin-bottom: 16px !important;
-}
-
-
-
-h1 {
-  padding-left: 48px !important;
 }
