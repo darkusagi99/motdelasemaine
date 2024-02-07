@@ -4,6 +4,7 @@ import {Wordlist} from "../wordlist";
 import {W} from "@angular/cdk/keycodes";
 import {Auth} from "@angular/fire/auth";
 import {doc, Firestore, getDoc, setDoc} from "@angular/fire/firestore";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,14 @@ export class WordlistService {
   private wordlists : Wordlist[] = [];
   private storageKey : string = "WORDLISTS";
   firestore: Firestore = inject(Firestore);
+  private router: Router;
 
   private getConnectedCollection() {
     return "user/" + this.auth.currentUser?.uid + "/wordlists"
   }
 
-  constructor(private auth: Auth) {
+  constructor(private auth: Auth, router: Router) {
+    this.router = router
     this.loadData();
   }
 
@@ -52,6 +55,8 @@ export class WordlistService {
         if (tempStorage != null) {
           this.wordlists = this.getWordListFromJson(tempStorage);
           localStorage.setItem(this.storageKey, JSON.stringify(this.wordlists));
+          // Update to main page when it's loaded
+          this.router.navigate(['wordlist']);
         }
       });
     }
