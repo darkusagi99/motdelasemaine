@@ -31,34 +31,38 @@ export class WordActivityCommon {
   // Go to next word
   nextWord() {
 
-    // Check current Word
-    // Validate Word status
-    if(this.getCurrentWord().toLowerCase() === this.activityList[this.currentIdx].getWord().toLowerCase()) {
-      // Mot correct
-      this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
+    // Only process if something was written
+    if (this.getCurrentWord().length != 0) {
 
-      // Show validation pop-up
-      this.showValidationDialog();
+      // Check current Word
+      // Validate Word status
+      if (this.getCurrentWord().toLowerCase() === this.activityList[this.currentIdx].getWord().toLowerCase()) {
+        // Mot correct
+        this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
 
-    } else {
-      // Incorrect word
-      // Show error pop-up
-      this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
+        // Show validation pop-up
+        this.showValidationDialog();
 
-    }
+      } else {
+        // Incorrect word
+        // Show error pop-up
+        this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
+
+      }
 
 
-    // Go to next Word / if end of list, close the activity and save status
-    if (this.activityList.length > this.currentIdx + 1) {
-      // Go to next word
-      this.currentIdx++;
-      // Reset input
-      this.resetInput();
-    } else {
-      // Save results (status update)
-      this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
-      // Redirect to main page
-      this.router.navigate(['wordlist']);
+      // Go to next Word / if end of list, close the activity and save status
+      if (this.activityList.length > this.currentIdx + 1) {
+        // Go to next word
+        this.currentIdx++;
+        // Reset input
+        this.resetInput();
+      } else {
+        // Save results (status update)
+        this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
+        // Redirect to main page
+        this.router.navigate(['wordlist']);
+      }
     }
   }
 

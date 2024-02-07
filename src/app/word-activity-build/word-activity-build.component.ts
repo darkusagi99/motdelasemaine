@@ -59,7 +59,6 @@ export class WordActivityBuildComponent extends WordActivityCommon {
       let tmpLetter = tmpWord.at(idx);
       if (tmpLetter) {
         this.currentWordLetters.push(tmpLetter.toLowerCase());
-        //this.builtWordLetters.push("");
       }
     }
 
