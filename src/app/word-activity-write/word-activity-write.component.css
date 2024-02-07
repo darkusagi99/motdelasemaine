@@ -25,6 +25,9 @@
 .activity-input-hidden {
   width: 100%;
   text-align: center;
+  font-size: 1pt;
+  height: 1px;
+  color: white;
 }
 
 .activity-input-visible {

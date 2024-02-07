@@ -5,11 +5,11 @@
 </div>
 
 <!-- Activity contents and actions -->
+<input type="password" class="activity-input-hidden" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
 <div class="activity-body">
   <mat-form-field class="activity-input">
-    <input type="password" class="activity-input-hidden" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
     <div class="activity-input-visible" >
-    <input type="text" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+      <input type="text" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
     </div>
   </mat-form-field>
 </div>
