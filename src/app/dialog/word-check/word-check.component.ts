@@ -12,6 +12,7 @@ import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {NgIf} from "@angular/common";
+import {WordCheckStatus} from "../../word-check-status";
 
 @Component({
   selector: 'app-word-check',
@@ -32,6 +33,6 @@ import {NgIf} from "@angular/common";
 export class WordCheckComponent {
   constructor(
     public dialogRef: MatDialogRef<WordCheckComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: string,
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data: WordCheckStatus,
+  ) { }
 }

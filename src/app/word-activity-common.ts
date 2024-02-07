@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {WordCheckComponent} from "./dialog/word-check/word-check.component";
 import {TextToSpeechService} from "./common/text-to-speech.service";
+import {WordCheckStatus} from "./word-check-status";
 
 export class WordActivityCommon {
   wordlist : Wordlist;
@@ -36,12 +37,12 @@ export class WordActivityCommon {
       // Mot correct
       this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
 
-      // Affichage pop-up validation
+      // Show validation pop-up
       this.showValidationDialog();
 
     } else {
-      // Mot erroné
-      // Affichage pop-up erreur
+      // Incorrect word
+      // Show error pop-up
       this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
 
     }
@@ -70,26 +71,23 @@ export class WordActivityCommon {
   }
 
   showValidationDialog() {
-    console.log('Validation dialog');
-      const dialogRef = this.dialog.open(WordCheckComponent, {
-        width: '90%',
-        data: ""
-      });
-
-  }
-
-  showErrorDialog(writtenWord: string, correctWord : string) {
-    console.log('ERROR dialog');
-
     const dialogRef = this.dialog.open(WordCheckComponent, {
       width: '90%',
-      data: writtenWord
+      data: new WordCheckStatus(true)
     });
 
   }
 
 
-  // Process for TTS
+  showErrorDialog(writtenWord: string, correctWord : string) {
+    const dialogRef = this.dialog.open(WordCheckComponent, {
+      width: '90%',
+      data: new WordCheckStatus(false, correctWord, writtenWord)
+    });
+  }
+
+
+  // Process for TTS - Say the asked word
   hearWord(wordToSay : string) {
     const startPhrase = "Le mot est : "
     this.ttsService.sayText(startPhrase + wordToSay)
