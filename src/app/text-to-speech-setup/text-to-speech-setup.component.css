@@ -1,0 +1,30 @@
+.mat-icon{
+  height:48px !important;
+  width:48px !important;
+  font-size:48px !important;
+}
+
+.add-button {
+  text-align: right;
+  border: 0;
+  padding: 48px !important;
+}
+
+.list-card {
+  padding: 48px !important;
+}
+
+.main-card {
+  margin-bottom: 16px !important;
+}
+
+.voice-select-div {
+  padding: 16px !important;
+  font-size: 16px;
+}
+
+.voice-select {
+  font-size: 16px;
+  border-style: solid;
+  border-color: lightgrey;
+}

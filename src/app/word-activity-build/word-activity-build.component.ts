@@ -8,6 +8,7 @@ import {NgForOf} from "@angular/common";
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {WordActivityCommon} from "../word-activity-common";
 import {MatDialog} from "@angular/material/dialog";
+import {TextToSpeechService} from "../common/text-to-speech.service";
 
 @Component({
   selector: 'app-word-activity-build',
@@ -27,9 +28,9 @@ export class WordActivityBuildComponent extends WordActivityCommon {
   currentWordLetters : string[] = [];
   builtWordLetters : string[] = [];
 
-  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog) {
+  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog, ttsService :TextToSpeechService) {
 
-    super(wordListService, route, router, dialog);
+    super(wordListService, route, router, dialog, ttsService);
     this.activityFlag = WordStatus.BUILD;
 
     // Additionnal process for build activity

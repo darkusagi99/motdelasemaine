@@ -7,6 +7,7 @@ import {MatIcon} from "@angular/material/icon";
 import {WordStatus} from "../word-status";
 import {WordActivityCommon} from "../word-activity-common";
 import {MatDialog} from "@angular/material/dialog";
+import {TextToSpeechService} from "../common/text-to-speech.service";
 
 @Component({
   selector: 'app-word-activity-see',
@@ -22,8 +23,8 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class WordActivitySeeComponent extends WordActivityCommon{
 
-  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog) {
-    super(wordListService, route, router, dialog);
+  constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog, ttsService :TextToSpeechService) {
+    super(wordListService, route, router, dialog, ttsService);
     this.activityFlag = WordStatus.SEE;
   }
 

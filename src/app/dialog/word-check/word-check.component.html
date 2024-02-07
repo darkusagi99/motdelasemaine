@@ -1,5 +1,6 @@
 <div class="list-dialog">
-    <p class="list-dialog-text" [innerHTML]="data" ></p>
+    <p class="list-dialog-text" *ngIf="data.length == 0">Bravo !</p>
+    <p class="list-dialog-text" *ngIf="data.length != 0">Dommage, le mot était : <span class="ok-text">En vert</span> - Tu as écrit : <span class="err-text">en rouge</span></p>
   <div mat-dialog-actions class="list-dialog-content">
     <button mat-button [mat-dialog-close]="">Fermer</button>
   </div>

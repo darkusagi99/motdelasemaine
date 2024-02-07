@@ -11,6 +11,7 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-word-check',
@@ -22,7 +23,8 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
     MatInputModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    NgIf
   ],
   templateUrl: './word-check.component.html',
   styleUrl: './word-check.component.css'

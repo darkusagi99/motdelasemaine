@@ -9,24 +9,26 @@ import {MatDialog} from "@angular/material/dialog";
 import {CreateListComponent} from "../dialog/create-list/create-list.component";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {ToolbarComponent} from "../toolbar/toolbar.component";
+import {TextToSpeechSetupComponent} from "../text-to-speech-setup/text-to-speech-setup.component";
 
 @Component({
   selector: 'app-wordlist-setup',
   standalone: true,
-    imports: [
-        MatIcon,
-        MatFabButton,
-        MatCard,
-        MatCardHeader,
-        MatCardActions,
-        MatButton,
-        MatCardSubtitle,
-        MatCardTitle,
-        NgForOf,
-        RouterLink,
-        RouterLinkActive,
-        ToolbarComponent
-    ],
+  imports: [
+    MatIcon,
+    MatFabButton,
+    MatCard,
+    MatCardHeader,
+    MatCardActions,
+    MatButton,
+    MatCardSubtitle,
+    MatCardTitle,
+    NgForOf,
+    RouterLink,
+    RouterLinkActive,
+    ToolbarComponent,
+    TextToSpeechSetupComponent
+  ],
   templateUrl: './wordlist-setup.component.html',
   styleUrl: './wordlist-setup.component.css'
 })

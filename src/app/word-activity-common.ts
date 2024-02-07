@@ -5,21 +5,25 @@ import {WordlistService} from "./common/wordlist.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {WordCheckComponent} from "./dialog/word-check/word-check.component";
+import {TextToSpeechService} from "./common/text-to-speech.service";
 
 export class WordActivityCommon {
   wordlist : Wordlist;
   wordlistId : string = "";
   activityFlag = WordStatus.BUILD;
+  ttsService : TextToSpeechService;
 
   activityList : Word[];
   currentIdx = 0;
 
-  constructor(protected wordListService : WordlistService, route : ActivatedRoute, protected router: Router, protected dialog: MatDialog) {
+  constructor(protected wordListService : WordlistService, route : ActivatedRoute, protected router: Router, protected dialog: MatDialog, ttsService :TextToSpeechService) {
     route.paramMap.subscribe( paramMap => {
       this.wordlistId = paramMap.get('id') ?? ""
     })
     this.wordlist = wordListService.getWordListById(this.wordlistId);
     this.activityList = this.wordlist.getShuffledlist();
+
+    this.ttsService = ttsService;
 
   }
 
@@ -69,47 +73,26 @@ export class WordActivityCommon {
     console.log('Validation dialog');
       const dialogRef = this.dialog.open(WordCheckComponent, {
         width: '90%',
-        data: "Bravo !"
+        data: ""
       });
 
   }
 
   showErrorDialog(writtenWord: string, correctWord : string) {
     console.log('ERROR dialog');
-    let htmlData = "Dommage, le mot était : <b><span class='okText'>"
-      + correctWord + "</span></b> - Tu as écrit : <b><span class='errText'>"
-      + writtenWord + "</span></b>";
 
     const dialogRef = this.dialog.open(WordCheckComponent, {
       width: '90%',
-      data: htmlData
+      data: writtenWord
     });
 
   }
 
 
-
   // Process for TTS
   hearWord(wordToSay : string) {
-
-    // Extract word to say
-    let tmpSelectedVoice = "Flo"
-    let tmpLang = "fr-FR"
-    let startPhrase = "Le mot est : "
-
-    // Say word
-    let synth = speechSynthesis;
-    let utterance = new SpeechSynthesisUtterance(startPhrase + wordToSay);
-
-    console.log(synth.getVoices());
-
-    for(let voice of synth.getVoices()){
-      if(voice.name === tmpSelectedVoice && voice.lang === tmpLang){
-        console.log("Found");
-        utterance.voice = voice;
-      }
-    }
-    synth.speak(utterance);
+    const startPhrase = "Le mot est : "
+    this.ttsService.sayText(startPhrase + wordToSay)
 
   }
 
