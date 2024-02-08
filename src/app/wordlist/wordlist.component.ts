@@ -4,7 +4,7 @@ import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} f
 import {MatIcon} from "@angular/material/icon";
 import {Wordlist} from "../wordlist";
 import {WordlistService} from "../common/wordlist.service";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import {RouterLink} from "@angular/router";
 import {WordStatus} from "../word-status";
 import {ToolbarComponent} from "../toolbar/toolbar.component";
 

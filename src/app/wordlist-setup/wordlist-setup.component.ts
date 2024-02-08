@@ -6,7 +6,7 @@ import {Wordlist} from "../wordlist";
 import {WordlistService} from "../common/wordlist.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateListComponent} from "../dialog/create-list/create-list.component";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import {RouterLink} from "@angular/router";
 import {ToolbarComponent} from "../toolbar/toolbar.component";
 import {TextToSpeechSetupComponent} from "../text-to-speech-setup/text-to-speech-setup.component";
 import {LoginComponent} from "../common/login/login.component";
