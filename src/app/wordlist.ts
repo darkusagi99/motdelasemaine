@@ -2,7 +2,7 @@ import {Word} from "./word";
 import {v4 as uuid} from "uuid";
 
 export class Wordlist {
-  private id : string
+  private readonly id : string
   private status = 0;
   private name : string = "";
   private wordlist : Word[] = [];

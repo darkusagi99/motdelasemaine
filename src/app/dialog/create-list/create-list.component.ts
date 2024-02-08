@@ -1,16 +1,15 @@
 import {Component, Inject} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
-  MatDialogActions,
   MatDialogContent,
   MatDialogModule,
   MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
-import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
-import {MatInput, MatInputModule} from "@angular/material/input";
-import {MatButton, MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-create-list',
@@ -30,7 +29,6 @@ import {MatButton, MatButtonModule} from "@angular/material/button";
 export class CreateListComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<CreateListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string,
   ) {}
 

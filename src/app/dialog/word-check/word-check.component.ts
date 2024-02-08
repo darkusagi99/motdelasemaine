@@ -32,7 +32,6 @@ import {WordCheckStatus} from "../../word-check-status";
 })
 export class WordCheckComponent {
   constructor(
-    public dialogRef: MatDialogRef<WordCheckComponent>,
     @Inject(MAT_DIALOG_DATA) public data: WordCheckStatus,
   ) { }
 }
