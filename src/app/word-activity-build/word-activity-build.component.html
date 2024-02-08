@@ -19,12 +19,13 @@
          [cdkDropListConnectedTo]="[letterList]"
          (cdkDropListDropped)="drop($event)"
          cdkDropListOrientation="horizontal">
-      <div *ngFor="let currentLetter of this.builtWordLetters"
-           cdkDrag
-           [cdkDragDisabled]="currentLetter.length==0"
-           class="activity-build-cell activity-build-target">
-        {{currentLetter}}
-      </div>
+      @for (currentLetter of this.builtWordLetters; track currentLetter) {
+        <div cdkDrag
+             [cdkDragDisabled]="currentLetter.length==0"
+             class="activity-build-cell activity-build-target">
+          {{currentLetter}}
+        </div>
+      }
     </div>
 
     <div class="activity-build-filler"></div>
@@ -37,13 +38,13 @@
          [cdkDropListConnectedTo]="[builtList]"
          (cdkDropListDropped)="drop($event)"
          cdkDropListOrientation="horizontal">
-
-      <div *ngFor="let currentLetter of this.currentWordLetters"
-           cdkDrag
-           [cdkDragDisabled]="currentLetter.length==0"
-           class="activity-build-cell activity-build-draggable">
-        {{currentLetter}}
-      </div>
+      @for (currentLetter of this.currentWordLetters; track currentLetter) {
+        <div cdkDrag
+             [cdkDragDisabled]="currentLetter.length==0"
+             class="activity-build-cell activity-build-draggable">
+          {{currentLetter}}
+        </div>
+      }
     </div>
 
     <!-- Last zone - reset button -->

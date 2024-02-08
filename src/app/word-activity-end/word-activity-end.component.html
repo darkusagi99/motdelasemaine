@@ -10,7 +10,9 @@
       <div>
         <p>Les mots qui n'étaient pas corrects sont :</p>
         <ul>
-          <li *ngFor="let currentWord of activitySummary.getErrorList()">{{ currentWord }}</li>
+          @for (currentWord of activitySummary.getErrorList(); track currentWord) {
+            <li>{{ currentWord }}</li>
+          }
         </ul>
       </div>
     </div>

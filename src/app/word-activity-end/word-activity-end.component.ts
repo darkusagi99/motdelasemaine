@@ -5,9 +5,7 @@ import {NgForOf} from "@angular/common";
 @Component({
   selector: 'app-word-activity-end',
   standalone: true,
-  imports: [
-    NgForOf
-  ],
+  imports: [],
   templateUrl: './word-activity-end.component.html',
   styleUrl: './word-activity-end.component.css'
 })

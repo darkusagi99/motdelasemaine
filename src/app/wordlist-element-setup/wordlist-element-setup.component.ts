@@ -23,7 +23,6 @@ import {ToolbarComponent} from "../toolbar/toolbar.component";
     MatCardTitle,
     MatFabButton,
     MatIcon,
-    NgForOf,
     RouterLink,
     RouterLinkActive,
     ToolbarComponent

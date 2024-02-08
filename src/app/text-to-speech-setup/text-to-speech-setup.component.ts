@@ -30,7 +30,7 @@ import {MatOption, MatSelect} from "@angular/material/select";
   styleUrl: './text-to-speech-setup.component.css'
 })
 export class TextToSpeechSetupComponent {
-  ttsService: any;
+  ttsService: TextToSpeechService;
   baseTestText = "Bonjour, je suis la voix ";
   selectedVoice = "";
 

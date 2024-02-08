@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {MatButton, MatFabButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {NgForOf} from "@angular/common";
 import {Wordlist} from "../wordlist";
 import {WordlistService} from "../common/wordlist.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -24,7 +23,6 @@ import {LoginComponent} from "../common/login/login.component";
     MatButton,
     MatCardSubtitle,
     MatCardTitle,
-    NgForOf,
     RouterLink,
     RouterLinkActive,
     ToolbarComponent,
