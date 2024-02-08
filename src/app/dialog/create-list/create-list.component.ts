@@ -3,7 +3,6 @@ import {
   MAT_DIALOG_DATA,
   MatDialogContent,
   MatDialogModule,
-  MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
