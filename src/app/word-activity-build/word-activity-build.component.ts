@@ -4,7 +4,7 @@ import {MatIcon} from "@angular/material/icon";
 import {WordlistService} from "../common/wordlist.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {WordStatus} from "../word-status";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgForOf} from "@angular/common";
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {WordActivityCommon} from "../word-activity-common";
 import {MatDialog} from "@angular/material/dialog";
@@ -20,8 +20,7 @@ import {WordActivityEndComponent} from "../word-activity-end/word-activity-end.c
     NgForOf,
     CdkDrag,
     CdkDropList,
-    WordActivityEndComponent,
-    NgIf
+    WordActivityEndComponent
   ],
   templateUrl: './word-activity-build.component.html',
   styleUrl: './word-activity-build.component.css'

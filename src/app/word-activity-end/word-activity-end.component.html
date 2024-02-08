@@ -1,16 +1,21 @@
 <div class="word-summary">
-<!-- Tous les mots sont corrects -->
-<p *ngIf="activitySummary.getSuccessWord() === activitySummary.getTotalWord()">Bravo, tous les mots étaient corrects !!</p>
+
+  @if (activitySummary.getSuccessWord() === activitySummary.getTotalWord()) {
+    <!-- Tous les mots sont corrects -->
+    <p>Bravo, tous les mots étaient corrects !!</p>
+  } @else {
+    <!-- Il y avait des mots erronés -->
+    <div>
+      <p>Tu as fait {{ activitySummary.getSuccessWord() }} mots corrects sur {{ activitySummary.getTotalWord() }}</p>
+      <div>
+        <p>Les mots qui n'étaient pas corrects sont :</p>
+        <ul>
+          <li *ngFor="let currentWord of activitySummary.getErrorList()">{{ currentWord }}</li>
+        </ul>
+      </div>
+    </div>
+  }
+
+</div>
 
 
-<!-- Il y avait des mots erronés -->
-<div *ngIf="activitySummary.getSuccessWord() !== activitySummary.getTotalWord()">
-  <p>Tu as fait {{ activitySummary.getSuccessWord() }} mots corrects sur {{ activitySummary.getTotalWord() }}</p>
-  <div *ngIf="activitySummary.getErrorList().length > 0">
-    <p>Les mots qui n'étaient pas corrects sont :</p>
-    <ul>
-      <li *ngFor="let currentWord of activitySummary.getErrorList()">{{ currentWord }}</li>
-    </ul>
-  </div>
-</div>
-</div>

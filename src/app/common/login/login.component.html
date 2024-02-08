@@ -5,8 +5,11 @@
       <mat-card-subtitle>Optionnel - pour sauver la liste dans le cloud / sinon sauvegarde en dans la navigateur</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions class="log-button">
-      <button mat-button color="accent" *ngIf="!isLogged()" (click)="loginWithGoogle()" ><mat-icon aria-label="Connexion">account_circle</mat-icon>Connexion - Google</button>
-      <button mat-button color="accent" *ngIf="isLogged()" (click)="logout()"><mat-icon aria-label="Deconnexion">account_circle</mat-icon>Déconnexion - {{displayConnectedUser()}}</button>
-    </mat-card-actions>
+      @if (isLogged()) {
+        <button mat-button color="accent" (click)="logout()"><mat-icon aria-label="Deconnexion">account_circle</mat-icon>Déconnexion - {{displayConnectedUser()}}</button>
+      } @else {
+        <button mat-button color="accent" (click)="loginWithGoogle()" ><mat-icon aria-label="Connexion">account_circle</mat-icon>Connexion - Google</button>
+      }
+      </mat-card-actions>
   </mat-card>
 </div>

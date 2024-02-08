@@ -8,7 +8,6 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
-import {NgIf} from "@angular/common";
 import {WordCheckStatus} from "../../word-check-status";
 
 @Component({
@@ -21,8 +20,7 @@ import {WordCheckStatus} from "../../word-check-status";
     FormsModule,
     MatInputModule,
     MatDialogModule,
-    MatButtonModule,
-    NgIf
+    MatButtonModule
   ],
   templateUrl: './word-check.component.html',
   styleUrl: './word-check.component.css'

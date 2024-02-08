@@ -5,14 +5,18 @@
 </div>
 
 <!-- Activity contents and actions -->
-<div class="activity-body"  *ngIf="!showSummaryFlag" (click)="setFocusOnInput()">
-  <div>
-    <input type="password" id="writeInput" class="activity-input-hidden" autofocus matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+@if (showSummaryFlag) {
+  <!-- Display summary -->
+  <div><app-word-activity-end [activitySummary]="activitySummary"/></div>
+} @else {
+  <div class="activity-body" (click)="setFocusOnInput()">
+    <div>
+      <input type="password" id="writeInput" class="activity-input-hidden" autofocus matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+    </div>
+    <div>
+      <p class="activity-input-visible" [innerHTML]="currentWord" (click)="setFocusOnInput()"></p>
+    </div>
   </div>
-  <div>
-    <p class="activity-input-visible" [innerHTML]="currentWord" (click)="setFocusOnInput()"></p>
-  </div>
-</div>
+}
 
-<!-- Display summary -->
-<div><app-word-activity-end *ngIf="showSummaryFlag" [activitySummary]="activitySummary"/></div>
+
