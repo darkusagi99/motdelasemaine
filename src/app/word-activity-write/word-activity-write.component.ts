@@ -38,6 +38,10 @@ export class WordActivityWriteComponent extends WordActivityCommon{
     this.activityFlag = WordStatus.WRITE;
   }
 
+  ngAfterViewInit() {
+    this.setFocusOnInput();
+  }
+
   override getCurrentWord() {
     return this.currentWord;
   }
