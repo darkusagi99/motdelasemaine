@@ -1,11 +1,11 @@
 <!-- Button bar at the top -->
-<div class="activity-toolbar">
+<div class="activity-toolbar" (click)="setFocusOnInput()">
   <button mat-fab color="accent" class="activity-button" (click)="hearWord(this.activityList[this.currentIdx].getWord())"><mat-icon aria-label="Ecouter mot">volume_up</mat-icon></button>
   <button mat-fab color="accent" class="activity-button" (click)="nextWord()"><mat-icon aria-label="Suivant">play_arrow</mat-icon></button>
 </div>
 
 <!-- Activity contents and actions -->
-<div class="activity-body"  *ngIf="!showSummaryFlag">
+<div class="activity-body"  *ngIf="!showSummaryFlag" (click)="setFocusOnInput()">
   <div>
     <input type="password" id="writeInput" class="activity-input-hidden" autofocus matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
   </div>

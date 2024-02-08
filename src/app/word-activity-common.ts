@@ -36,7 +36,7 @@ export class WordActivityCommon {
   nextWord() {
 
     // Only process if something was written
-    if (this.getCurrentWord().length != 0 || this.activitySummary) {
+    if (this.getCurrentWord().length != 0 || this.showSummaryFlag) {
 
       if (!this.showSummaryFlag) {
         // Check current Word
