@@ -13,8 +13,7 @@
 .activity-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height : 100%;
 }
 
 .activity-input {
@@ -33,6 +32,7 @@
 }
 
 .activity-input-visible {
+  flex: 1 1 auto;
   width: 100%;
   text-align: center;
   font-size: 12vw;
