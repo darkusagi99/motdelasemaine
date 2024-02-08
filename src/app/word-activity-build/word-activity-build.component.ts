@@ -4,11 +4,12 @@ import {MatIcon} from "@angular/material/icon";
 import {WordlistService} from "../common/wordlist.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {WordStatus} from "../word-status";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {WordActivityCommon} from "../word-activity-common";
 import {MatDialog} from "@angular/material/dialog";
 import {TextToSpeechService} from "../common/text-to-speech.service";
+import {WordActivityEndComponent} from "../word-activity-end/word-activity-end.component";
 
 @Component({
   selector: 'app-word-activity-build',
@@ -18,7 +19,9 @@ import {TextToSpeechService} from "../common/text-to-speech.service";
     MatIcon,
     NgForOf,
     CdkDrag,
-    CdkDropList
+    CdkDropList,
+    WordActivityEndComponent,
+    NgIf
   ],
   templateUrl: './word-activity-build.component.html',
   styleUrl: './word-activity-build.component.css'

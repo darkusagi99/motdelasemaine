@@ -5,7 +5,7 @@
 </div>
 
 <!-- Activity contents and actions -->
-<div class="activity-build-zone">
+<div class="activity-build-zone"  *ngIf="!showSummaryFlag">
 
   <div class="activity-build activity-build-target-zone"
        cdkDropList
@@ -47,3 +47,6 @@
   </div>
 
 </div>
+
+<!-- Display summary -->
+<div><app-word-activity-end *ngIf="showSummaryFlag" [activitySummary]="activitySummary"/></div>

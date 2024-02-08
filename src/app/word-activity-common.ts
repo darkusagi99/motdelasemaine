@@ -18,6 +18,7 @@ export class WordActivityCommon {
 
   activityList : Word[];
   currentIdx = 0;
+  showSummaryFlag = false;
 
   constructor(protected wordListService : WordlistService, route : ActivatedRoute, protected router: Router, protected dialog: MatDialog, ttsService :TextToSpeechService) {
     route.paramMap.subscribe( paramMap => {
@@ -35,23 +36,25 @@ export class WordActivityCommon {
   nextWord() {
 
     // Only process if something was written
-    if (this.getCurrentWord().length != 0) {
+    if (this.getCurrentWord().length != 0 || this.activitySummary) {
 
-      // Check current Word
-      // Validate Word status
-      if (this.getCurrentWord().toLowerCase() === this.activityList[this.currentIdx].getWord().toLowerCase()) {
-        // Mot correct
-        this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
+      if (!this.showSummaryFlag) {
+        // Check current Word
+        // Validate Word status
+        if (this.getCurrentWord().toLowerCase() === this.activityList[this.currentIdx].getWord().toLowerCase()) {
+          // Mot correct
+          this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
 
-        // Show validation pop-up
-        this.showValidationDialog();
+          // Show validation pop-up
+          this.showValidationDialog();
 
-      } else {
-        // Incorrect word
-        // Show error pop-up
-        this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
-        this.activitySummary.addError(this.activityList[this.currentIdx].getWord());
+        } else {
+          // Incorrect word
+          // Show error pop-up
+          this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
+          this.activitySummary.addError(this.activityList[this.currentIdx].getWord());
 
+        }
       }
 
 
@@ -62,10 +65,14 @@ export class WordActivityCommon {
         // Reset input
         this.resetInput();
       } else {
-        // Save results (status update)
-        this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
-        // Redirect to main page
-        this.router.navigate(['wordlist']);
+        if (this.showSummaryFlag) {
+          // Save results (status update)
+          this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
+          // Redirect to main page
+          this.router.navigate(['wordlist']);
+        } else {
+          this.showSummaryFlag = true;
+        }
       }
     }
   }

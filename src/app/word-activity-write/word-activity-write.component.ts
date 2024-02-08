@@ -10,6 +10,8 @@ import {FormsModule} from "@angular/forms";
 import {WordActivityCommon} from "../word-activity-common";
 import {MatDialog} from "@angular/material/dialog";
 import {TextToSpeechService} from "../common/text-to-speech.service";
+import {NgIf} from "@angular/common";
+import {WordActivityEndComponent} from "../word-activity-end/word-activity-end.component";
 
 @Component({
   selector: 'app-word-activity-write',
@@ -21,7 +23,9 @@ import {TextToSpeechService} from "../common/text-to-speech.service";
     MatInput,
     MatLabel,
     MatHint,
-    FormsModule
+    FormsModule,
+    NgIf,
+    WordActivityEndComponent
   ],
   templateUrl: './word-activity-write.component.html',
   styleUrl: './word-activity-write.component.css'

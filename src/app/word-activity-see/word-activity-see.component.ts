@@ -26,6 +26,7 @@ export class WordActivitySeeComponent extends WordActivityCommon{
   constructor(wordListService : WordlistService, route : ActivatedRoute, router: Router, dialog: MatDialog, ttsService :TextToSpeechService) {
     super(wordListService, route, router, dialog, ttsService);
     this.activityFlag = WordStatus.SEE;
+    this.showSummaryFlag = true;
   }
 
   override showValidationDialog() {
