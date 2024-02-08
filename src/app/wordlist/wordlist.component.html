@@ -10,13 +10,13 @@
         <mat-card-subtitle>{{ currentList.getWordListDisplay() }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions align="end">
-        <a routerLink="/wordlist/see/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <a routerLink="/wordlist/see/{{currentList.getId()}}">
           <button mat-button><mat-icon aria-label="Consulter les mots" class="{{currentList.hasStatusFlag(WordStatus.SEE) ? 'validated-list' : ''}}">visibility</mat-icon></button>
         </a>
-        <a routerLink="/wordlist/build/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <a routerLink="/wordlist/build/{{currentList.getId()}}">
           <button mat-button><mat-icon aria-label="Construire les mots" class="{{currentList.hasStatusFlag(WordStatus.BUILD) ? 'validated-list' : ''}}">plumbing</mat-icon></button>
         </a>
-        <a routerLink="/wordlist/write/{{currentList.getId()}}" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <a routerLink="/wordlist/write/{{currentList.getId()}}">
           <button mat-button><mat-icon aria-label="Ecrire les mots" class="{{currentList.hasStatusFlag(WordStatus.WRITE) ? 'validated-list' : ''}}">edit_note</mat-icon></button>
         </a>
       </mat-card-actions>

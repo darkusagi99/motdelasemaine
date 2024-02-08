@@ -20,7 +20,6 @@ import {ToolbarComponent} from "../toolbar/toolbar.component";
         MatCardTitle,
         MatIcon,
         RouterLink,
-        RouterLinkActive,
         ToolbarComponent
     ],
   templateUrl: './wordlist.component.html',

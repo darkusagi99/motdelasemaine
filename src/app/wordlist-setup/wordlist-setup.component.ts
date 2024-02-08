@@ -24,7 +24,6 @@ import {LoginComponent} from "../common/login/login.component";
     MatCardSubtitle,
     MatCardTitle,
     RouterLink,
-    RouterLinkActive,
     ToolbarComponent,
     TextToSpeechSetupComponent,
     LoginComponent
