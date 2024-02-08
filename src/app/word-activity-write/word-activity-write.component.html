@@ -6,12 +6,12 @@
 
 <!-- Activity contents and actions -->
 <div class="activity-body"  *ngIf="!showSummaryFlag">
-  <mat-form-field class="activity-input">
-    <div class="activity-input-visible" >
-      <input type="password" class="activity-input-hidden" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
-      <input type="text" matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
-    </div>
-  </mat-form-field>
+  <div>
+    <input type="password" id="writeInput" class="activity-input-hidden" autofocus matInput autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" [(ngModel)]="currentWord">
+  </div>
+  <div>
+    <p class="activity-input-visible" [innerHTML]="currentWord" (click)="setFocusOnInput()"></p>
+  </div>
 </div>
 
 <!-- Display summary -->

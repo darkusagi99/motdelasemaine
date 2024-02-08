@@ -47,5 +47,19 @@ export class WordActivityWriteComponent extends WordActivityCommon{
     this.currentWord = "";
   }
 
+  override nextWord() {
+    super.nextWord();
+    this.setFocusOnInput();
+  }
+
+  override hearWord(wordToSay: string) {
+    super.hearWord(wordToSay);
+    this.setFocusOnInput();
+  }
+
+  setFocusOnInput() {
+    document.getElementById("writeInput")?.focus();
+  }
+
 
 }
