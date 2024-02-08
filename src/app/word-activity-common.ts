@@ -7,12 +7,14 @@ import {MatDialog} from "@angular/material/dialog";
 import {WordCheckComponent} from "./dialog/word-check/word-check.component";
 import {TextToSpeechService} from "./common/text-to-speech.service";
 import {WordCheckStatus} from "./word-check-status";
+import {ActivitySummary} from "./activity-summary";
 
 export class WordActivityCommon {
   wordlist : Wordlist;
   wordlistId : string = "";
   activityFlag = WordStatus.BUILD;
   ttsService : TextToSpeechService;
+  activitySummary : ActivitySummary;
 
   activityList : Word[];
   currentIdx = 0;
@@ -25,6 +27,7 @@ export class WordActivityCommon {
     this.activityList = this.wordlist.getShuffledlist();
 
     this.ttsService = ttsService;
+    this.activitySummary = new ActivitySummary(this.wordlist.getWordlist().length);
 
   }
 
@@ -47,6 +50,7 @@ export class WordActivityCommon {
         // Incorrect word
         // Show error pop-up
         this.showErrorDialog(this.getCurrentWord().toLowerCase(), this.activityList[this.currentIdx].getWord().toLowerCase());
+        this.activitySummary.addError(this.activityList[this.currentIdx].getWord());
 
       }
 

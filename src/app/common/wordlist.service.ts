@@ -1,7 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {Word} from "../word";
 import {Wordlist} from "../wordlist";
-import {W} from "@angular/cdk/keycodes";
 import {Auth} from "@angular/fire/auth";
 import {doc, Firestore, getDoc, setDoc} from "@angular/fire/firestore";
 import {Router} from "@angular/router";

@@ -1,8 +1,6 @@
 import {inject, Injectable} from '@angular/core';
-import firebase from "./firebase";
-import {collection, doc, Firestore, getDoc, setDoc,} from '@angular/fire/firestore';
+import {doc, Firestore, getDoc, setDoc,} from '@angular/fire/firestore';
 import {Auth} from "@angular/fire/auth";
-import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
