@@ -6,7 +6,6 @@ import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
 import {MatButton, MatFabButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
-import {NgForOf} from "@angular/common";
 import {CreateWordComponent} from "../dialog/create-word/create-word.component";
 import {CreateListComponent} from "../dialog/create-list/create-list.component";
 import {ToolbarComponent} from "../toolbar/toolbar.component";

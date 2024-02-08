@@ -3,7 +3,6 @@ import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
 import {Wordlist} from "../wordlist";
-import {NgForOf} from "@angular/common";
 import {WordlistService} from "../common/wordlist.service";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {WordStatus} from "../word-status";

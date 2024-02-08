@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {ActivitySummary} from "../activity-summary";
-import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-word-activity-end',
