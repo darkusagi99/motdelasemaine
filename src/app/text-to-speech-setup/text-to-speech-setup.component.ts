@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
-import {NgForOf} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {TextToSpeechService} from "../common/text-to-speech.service";
 import {FormsModule} from "@angular/forms";
@@ -19,7 +18,6 @@ import {MatOption, MatSelect} from "@angular/material/select";
     MatCardSubtitle,
     MatCardTitle,
     MatIcon,
-    NgForOf,
     RouterLink,
     RouterLinkActive,
     FormsModule,

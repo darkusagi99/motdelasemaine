@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 
 import {Auth, signInWithPopup} from "@angular/fire/auth";
 import { GoogleAuthProvider } from "firebase/auth"
-import {NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
@@ -15,7 +14,6 @@ import {WordlistService} from "../wordlist.service";
   selector: 'app-login',
   standalone: true,
   imports: [
-    NgIf,
     MatButton,
     MatCard,
     MatCardActions,
@@ -24,8 +22,7 @@ import {WordlistService} from "../wordlist.service";
     MatCardTitle,
     MatIcon,
     MatOption,
-    MatSelect,
-    NgForOf
+    MatSelect
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
