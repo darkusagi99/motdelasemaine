@@ -65,5 +65,9 @@ export class WordActivityWriteComponent extends WordActivityCommon{
     document.getElementById("writeInput")?.focus();
   }
 
+  override resetFocus() {
+    this.setFocusOnInput();
+  }
+
 
 }

@@ -85,12 +85,17 @@ export class WordActivityCommon {
     // Do nothing on "basic" process.
   }
 
+  resetFocus() {
+    // Do nothing on standard process.
+  }
+
   showValidationDialog() {
     const dialogRef = this.dialog.open(WordCheckComponent, {
       width: '90%',
       data: new WordCheckStatus(true)
     });
 
+    dialogRef.afterClosed().subscribe(() => this.resetFocus());
   }
 
 
@@ -99,6 +104,8 @@ export class WordActivityCommon {
       width: '90%',
       data: new WordCheckStatus(false, correctWord, writtenWord)
     });
+
+    dialogRef.afterClosed().subscribe(() => this.resetFocus());
   }
 
 
