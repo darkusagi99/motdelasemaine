@@ -6,7 +6,6 @@ import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
 import {MatButton, MatFabButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
-import {NgForOf} from "@angular/common";
 import {CreateWordComponent} from "../dialog/create-word/create-word.component";
 import {CreateListComponent} from "../dialog/create-list/create-list.component";
 import {ToolbarComponent} from "../toolbar/toolbar.component";
@@ -23,13 +22,12 @@ import {ToolbarComponent} from "../toolbar/toolbar.component";
     MatCardTitle,
     MatFabButton,
     MatIcon,
-    NgForOf,
     RouterLink,
     RouterLinkActive,
     ToolbarComponent
   ],
   templateUrl: './wordlist-element-setup.component.html',
-  styleUrl: './wordlist-element-setup.component.css'
+  styleUrls: ['./wordlist-element-setup.component.css', '../common/common.css']
 })
 export class WordlistElementSetupComponent {
   wordlist : Wordlist;

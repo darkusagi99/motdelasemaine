@@ -1,17 +1,8 @@
-.mat-icon{
-  height:48px !important;
-  width:48px !important;
-  font-size:48px !important;
-}
 
 .add-button {
   text-align: right;
   border: 0;
   padding: 48px !important;
-}
-
-.list-card {
-  padding: 16px 48px !important;
 }
 
 .main-card {

@@ -66,6 +66,7 @@ export class WordActivityCommon {
         this.resetInput();
       } else {
         if (this.showSummaryFlag) {
+          console.log("Update - redirect : " + this.activityFlag);
           // Save results (status update)
           this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
           // Redirect to main page

@@ -5,48 +5,53 @@
 </div>
 
 <!-- Activity contents and actions -->
-<div class="activity-build-zone"  *ngIf="!showSummaryFlag">
 
-  <div class="activity-build activity-build-target-zone"
-       cdkDropList
-       #builtList="cdkDropList"
-       [cdkDropListData]="builtWordLetters"
-       [cdkDropListConnectedTo]="[letterList]"
-       (cdkDropListDropped)="drop($event)"
-       cdkDropListOrientation="horizontal">
-    <div *ngFor="let currentLetter of this.builtWordLetters"
-         cdkDrag
-         [cdkDragDisabled]="currentLetter.length==0"
-         class="activity-build-cell activity-build-target">
-      {{currentLetter}}
+@if (showSummaryFlag) {
+  <!-- Display summary -->
+  <div><app-word-activity-end [activitySummary]="activitySummary"/></div>
+} @else {
+  <div class="activity-build-zone">
+
+    <div class="activity-build activity-build-target-zone"
+         cdkDropList
+         #builtList="cdkDropList"
+         [cdkDropListData]="builtWordLetters"
+         [cdkDropListConnectedTo]="[letterList]"
+         (cdkDropListDropped)="drop($event)"
+         cdkDropListOrientation="horizontal">
+      @for (currentLetter of this.builtWordLetters; track currentLetter) {
+        <div cdkDrag
+             [cdkDragDisabled]="currentLetter.length==0"
+             class="activity-build-cell activity-build-target">
+          {{currentLetter}}
+        </div>
+      }
     </div>
-  </div>
 
-  <div class="activity-build-filler"></div>
+    <div class="activity-build-filler"></div>
 
-  <!-- Bottom zone - Letters of word -->
-  <div class="activity-build activity-build-source-zone"
-       cdkDropList
-       #letterList="cdkDropList"
-       [cdkDropListData]="currentWordLetters"
-       [cdkDropListConnectedTo]="[builtList]"
-       (cdkDropListDropped)="drop($event)"
-       cdkDropListOrientation="horizontal">
-
-    <div *ngFor="let currentLetter of this.currentWordLetters"
-         cdkDrag
-         [cdkDragDisabled]="currentLetter.length==0"
-         class="activity-build-cell activity-build-draggable">
-      {{currentLetter}}
+    <!-- Bottom zone - Letters of word -->
+    <div class="activity-build activity-build-source-zone"
+         cdkDropList
+         #letterList="cdkDropList"
+         [cdkDropListData]="currentWordLetters"
+         [cdkDropListConnectedTo]="[builtList]"
+         (cdkDropListDropped)="drop($event)"
+         cdkDropListOrientation="horizontal">
+      @for (currentLetter of this.currentWordLetters; track currentLetter) {
+        <div cdkDrag
+             [cdkDragDisabled]="currentLetter.length==0"
+             class="activity-build-cell activity-build-draggable">
+          {{currentLetter}}
+        </div>
+      }
     </div>
+
+    <!-- Last zone - reset button -->
+    <div class="activity-bottom-toolbar">
+      <button mat-fab color="accent" class="activity-button" (click)="resetInput()"><mat-icon aria-label="Reset">restore</mat-icon></button>
+    </div>
+
   </div>
+}
 
-  <!-- Last zone - reset button -->
-  <div class="activity-bottom-toolbar">
-    <button mat-fab color="accent" class="activity-button" (click)="resetInput()"><mat-icon aria-label="Reset">restore</mat-icon></button>
-  </div>
-
-</div>
-
-<!-- Display summary -->
-<div><app-word-activity-end *ngIf="showSummaryFlag" [activitySummary]="activitySummary"/></div>

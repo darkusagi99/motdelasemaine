@@ -1,6 +1,9 @@
 <div class="list-dialog">
-    <p class="list-dialog-text" *ngIf="data.successFlag">Bravo !</p>
-    <p class="list-dialog-text" *ngIf="!data.successFlag">Dommage, le mot était : <span class="ok-text">{{ data.correctWord }}</span> - Tu as écrit : <span class="err-text">{{data.writtenWord}}</span></p>
+    @if (data.successFlag) {
+      <p class="list-dialog-text">Bravo !</p>
+    } @else {
+      <p class="list-dialog-text">Dommage, le mot était : <span class="ok-text">{{ data.correctWord }}</span> - Tu as écrit : <span class="err-text">{{data.writtenWord}}</span></p>
+    }
   <div mat-dialog-actions class="list-dialog-content">
     <button mat-button [mat-dialog-close]="">Fermer</button>
   </div>

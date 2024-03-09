@@ -1,14 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {ActivitySummary} from "../activity-summary";
-import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-word-activity-end',
   standalone: true,
-  imports: [
-    NgIf,
-    NgForOf
-  ],
+  imports: [],
   templateUrl: './word-activity-end.component.html',
   styleUrl: './word-activity-end.component.css'
 })
