@@ -25,7 +25,7 @@ import {WordlistService} from "../wordlist.service";
     MatSelect
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: '../common.css'
 })
 export class LoginComponent {
   private ttsService: TextToSpeechService;

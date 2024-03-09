@@ -27,7 +27,7 @@ import {ToolbarComponent} from "../toolbar/toolbar.component";
     ToolbarComponent
   ],
   templateUrl: './wordlist-element-setup.component.html',
-  styleUrl: './wordlist-element-setup.component.css'
+  styleUrls: ['./wordlist-element-setup.component.css', '../common/common.css']
 })
 export class WordlistElementSetupComponent {
   wordlist : Wordlist;

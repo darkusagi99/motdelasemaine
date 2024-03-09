@@ -29,7 +29,7 @@ import {LoginComponent} from "../common/login/login.component";
     LoginComponent
   ],
   templateUrl: './wordlist-setup.component.html',
-  styleUrl: './wordlist-setup.component.css'
+  styleUrls: ['./wordlist-setup.component.css', '../common/common.css']
 })
 export class WordlistSetupComponent {
   wordlists : Wordlist[] = [];

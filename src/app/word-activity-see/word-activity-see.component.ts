@@ -19,7 +19,7 @@ import {TextToSpeechService} from "../common/text-to-speech.service";
     MatFabButton
   ],
   templateUrl: './word-activity-see.component.html',
-  styleUrl: './word-activity-see.component.css'
+  styleUrls: ['./word-activity-see.component.css', '../common/common.css']
 })
 export class WordActivitySeeComponent extends WordActivityCommon{
 
@@ -35,6 +35,35 @@ export class WordActivitySeeComponent extends WordActivityCommon{
 
   override showErrorDialog() {
     // See activity - do nothing
+  }
+
+  override nextWord() {
+
+    // Only process if something was written
+    if (this.getCurrentWord().length != 0 || this.showSummaryFlag) {
+
+      // Check current Word
+      // Validate Word status
+      // Mot correct
+      this.activityList[this.currentIdx].addStatusFlag(this.activityFlag);
+
+      // Go to next Word / if end of list, close the activity and save status
+      if (this.activityList.length > this.currentIdx + 1) {
+        // Go to next word
+        this.currentIdx++;
+        // Reset input
+        this.resetInput();
+      } else {
+        if (this.showSummaryFlag) {
+          // Save results (status update)
+          this.wordListService.updateListStatus(this.wordlist, this.activityList, this.activityFlag);
+          // Redirect to main page
+          this.router.navigate(['wordlist']);
+        } else {
+          this.showSummaryFlag = true;
+        }
+      }
+    }
   }
 
 }

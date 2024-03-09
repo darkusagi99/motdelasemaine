@@ -23,7 +23,7 @@ import {ToolbarComponent} from "../toolbar/toolbar.component";
         ToolbarComponent
     ],
   templateUrl: './wordlist.component.html',
-  styleUrl: './wordlist.component.css'
+  styleUrls: ['./wordlist.component.css', '../common/common.css']
 })
 export class WordlistComponent {
   wordlists : Wordlist[] = [];

@@ -25,7 +25,7 @@ import {MatOption, MatSelect} from "@angular/material/select";
     MatOption
   ],
   templateUrl: './text-to-speech-setup.component.html',
-  styleUrl: './text-to-speech-setup.component.css'
+  styleUrls: ['./text-to-speech-setup.component.css', '../common/common.css']
 })
 export class TextToSpeechSetupComponent {
   ttsService: TextToSpeechService;
